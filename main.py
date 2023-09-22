@@ -7,7 +7,7 @@ import sqlite3
 from app import prompt
 
 warnings.filterwarnings("ignore")
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = "...."
 
 
 def read_dataset(dataset_name: str) -> pd.DataFrame:
@@ -29,7 +29,7 @@ def connect_to_openai():
     return OpenAI(temperature=0, openai_api_key=OPENAI_API_KEY, model_name='gpt-3.5-turbo')
 
 
-if _name_ == "__main__":
+if __name__ == "__main__":
     dataset_df = read_dataset("Nashville Housing.csv")
     db_conn = create_db(dataset_df)
     openai_client = connect_to_openai()
