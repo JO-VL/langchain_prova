@@ -35,11 +35,3 @@ if __name__ == "__main__":
     openai_client = connect_to_openai()
     db_chain = SQLDatabaseChain(llm=openai_client, database=db_conn, verbose=True)
     db_chain.run(prompt)
-
-# Conectem a OpenAI
-db = SQLDatabase.from_uri("sqlite:///base_de_dades.sqlite")
-OPENAI_API_KEY = "...."
-llm = OpenAI(temperature=0, openai_api_key=OPENAI_API_KEY, model_name='gpt-3.5-turbo')
-db_chain = SQLDatabaseChain(llm=llm, database=db, verbose=True)
-
-db_chain.run(prompt)
